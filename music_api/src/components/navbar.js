@@ -13,9 +13,9 @@ export class Navbar extends Component{
     }
     render(){
         return <div className="Navbar ">
-            <nav className='navbar navbar-expand-lg navbar-dark bg-secondary'>
+            <nav className='navbar navbar-expand-lg navbar-dark bg-secondary justify-content-between'>
             <a className="navbar-brand" href=".">My Music</a>
-            <Searchbar/>
+            
             </nav>
         </div>
     };
