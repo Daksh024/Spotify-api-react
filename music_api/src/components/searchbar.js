@@ -20,7 +20,7 @@ class Searchbar extends Component{
 
     startsearch(event){
         console.log('Searching for :' + this.state.value);
-        // event.preventDefault();
+        event.preventDefault();
     }
 
     render(){
