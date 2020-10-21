@@ -23,6 +23,7 @@ class App extends Component{
     Spotify.search(term).then(searchresult => {
         this.setState({searchresult:searchresult})
     });
+    // TODO seaching doesnot work properly.
   }
 
 
