@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Spotify from './Spotify'
+import SearchResult from "./searchresult";
 
 class Searchbar extends Component{
     constructor(props){
@@ -12,12 +13,14 @@ class Searchbar extends Component{
 
         this.startsearch = this.startsearch.bind(this);
         this.handlechange = this.handlechange.bind(this);
+        this.displayrow = this.displayrow.bind(this);
     }
 
     handlechange(event){
         this.setState({
             value: event.target.value
         });
+        this.startsearch(event);
     }
 
     startsearch(event){
@@ -26,15 +29,28 @@ class Searchbar extends Component{
             this.setState({result:searchresult})
         });
         event.preventDefault();
-        console.log(this.state.result)
+        console.log(this.state.result);
+        this.state.result.forEach(id => {
+            this.displayrow(id)
+        });
+    }
+
+    displayrow(id){
+        var node = document.createElement("LI");
+        var textnode = document.createTextNode(id.id);
+        node.appendChild(textnode);
+        document.getElementById('res_id').appendChild(node);
     }
 
     render(){
         return <div className="search">
-            <form className="form-inline my-2 my-lg-0 justify-content-between" onSubmit={this.startsearch}>
+            <br/>
+            <form className="form-inline my-2 my-lg-0 justify-content-center" onSubmit={this.startsearch}>
                 <input className="form-control mr-sm-2" onChange = {this.handlechange} type="text" placeholder="Search" aria-label="Search"/>
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
+            <br/>
+            <div id='res_id'></div>
         </div>
     }
 }
