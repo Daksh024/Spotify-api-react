@@ -1,25 +1,41 @@
 import React, { Component } from 'react';
 
 class searchresult extends Component {
-    constructor(props){
-        super(props)
 
-        this.state ={
-            results:[]
-        }
-
-        this.search = this.search.bind(this)
-    }
-
-    search(word){
-        fetch(`https://api.spotify.com/v1/search?q=${word}&type=artist`,{method:'GET',})
-        .then(console.log)
-    }
 
     render() {
         return (
             <div className='SearchResults'>
-                <p>{this.state.results}</p>
+                <table className="table table-striped table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Handle</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Larry</td>
+                      <td>the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                </table>
             </div>
         );
     }

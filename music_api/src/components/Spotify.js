@@ -34,7 +34,6 @@ const Spotify = {
         }
         )
         .then(response => {return response.json();})
-        // .then(jsonres => {return response.json();})
         .then(jsonres => {
             if(!jsonres.tracks){
                 return []
