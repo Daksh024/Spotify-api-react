@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Spotify from './Spotify'
-import SearchResult from "./searchresult";
 
 class Searchbar extends Component{
     constructor(props){
@@ -20,7 +19,7 @@ class Searchbar extends Component{
         this.setState({
             value: event.target.value
         });
-        this.startsearch(event);
+        // this.startsearch(event); 
     }
 
     startsearch(event){
@@ -35,9 +34,9 @@ class Searchbar extends Component{
         });
     }
 
-    displayrow(id){
+    displayrow(obj){
         var node = document.createElement("LI");
-        var textnode = document.createTextNode(id.id);
+        var textnode = document.createTextNode(obj.name);
         node.appendChild(textnode);
         document.getElementById('res_id').appendChild(node);
     }
